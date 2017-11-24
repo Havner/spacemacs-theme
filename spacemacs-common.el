@@ -299,9 +299,9 @@ to 'auto, tags may not be properly aligned. "
      `(diff-removed           ((,class :background nil :foreground ,red :extend t)))
 
 ;;;;; diff-hl
-     `(diff-hl-change ((,class :background ,blue-bg-s :foreground ,blue)))
-     `(diff-hl-delete ((,class :background ,red-bg-s :foreground ,red)))
-     `(diff-hl-insert ((,class :background ,green-bg-s :foreground ,green)))
+     `(diff-hl-change ((,class (:background ,blue-bg-s :foreground ,blue))))
+     `(diff-hl-delete ((,class (:background ,red-bg-s :foreground ,red))))
+     `(diff-hl-insert ((,class (:background ,green-bg-s :foreground ,green))))
 
 ;;;;; dired
      `(dired-directory ((,class (:foreground ,keyword :background ,bg1 :inherit bold))))
@@ -579,6 +579,7 @@ to 'auto, tags may not be properly aligned. "
 
 ;;;;; ivy
      `(ivy-current-match ((,class (:background ,highlight :inherit bold))))
+     `(ivy-highlight-face ((,class (:italic t))))
      `(ivy-minibuffer-match-face-1 ((,class (:inherit bold))))
      `(ivy-minibuffer-match-face-2 ((,class (:foreground ,head1 :underline t))))
      `(ivy-minibuffer-match-face-3 ((,class (:foreground ,head4 :underline t))))
@@ -674,9 +675,9 @@ to 'auto, tags may not be properly aligned. "
      `(markdown-table-face ((,class (:foreground ,base :background ,head1-bg))))
 
 ;;;;; mode-line
-     `(mode-line           ((,class (:foreground ,base :background ,act1 :box (:color ,border :line-width 1)))))
-     `(mode-line-buffer-id ((,class (:inherit bold :foreground ,func))))
-     `(mode-line-inactive  ((,class (:foreground ,base :background ,bg1  :box (:color ,border :line-width 1)))))
+     `(mode-line           ((,class (:foreground ,base :background ,bg1 :box (:color ,border :line-width 1)))))
+     `(mode-line-buffer-id ((,class (:inherit bold :foreground ,comp))))
+     `(mode-line-inactive  ((,class (:foreground ,base-dim :background ,bg1 :box (:color ,border :line-width 1)))))
 
 ;;;;; mu4e
      `(mu4e-attach-number-face ((,class (:foreground ,var))))
@@ -796,9 +797,9 @@ to 'auto, tags may not be properly aligned. "
 
 ;;;;; powerline
      `(powerline-active1 ((,class (:background ,act2 :foreground ,base))))
-     `(powerline-active2 ((,class (:background ,act2 :foreground ,base))))
-     `(powerline-inactive1 ((,class (:background ,bg2 :foreground ,base))))
-     `(powerline-inactive2 ((,class (:background ,bg2 :foreground ,base))))
+     `(powerline-active2 ((,class (:background ,bg2 :foreground ,base))))
+     `(powerline-inactive1 ((,class (:background ,cblk-ln-bg :foreground ,base-dim))))
+     `(powerline-inactive2 ((,class (:background ,bg2 :Foreground ,base-dim))))
 
 ;;;;; rainbow-delimiters
      `(rainbow-delimiters-depth-1-face ((,class :foreground ,keyword)))
@@ -877,14 +878,15 @@ to 'auto, tags may not be properly aligned. "
 
 ;;;;; term
      `(term ((,class (:foreground ,base :background ,bg1))))
-     `(term-color-black ((,class (:foreground ,bg4))))
-     `(term-color-blue ((,class (:foreground ,keyword))))
-     `(term-color-cyan ((,class (:foreground ,cyan))))
-     `(term-color-green ((,class (:foreground ,green))))
-     `(term-color-magenta ((,class (:foreground ,magenta))))
-     `(term-color-red ((,class (:foreground ,red))))
-     `(term-color-white ((,class (:foreground ,base))))
-     `(term-color-yellow ((,class (:foreground ,yellow))))
+     `(term-bold ((,class (:inherit term :weight bold))))
+     `(term-color-black ((,class (:foreground ,bg4 :background ,bg4))))
+     `(term-color-blue ((,class (:foreground ,keyword :background ,keyword))))
+     `(term-color-cyan ((,class (:foreground ,cyan :background ,cyan))))
+     `(term-color-green ((,class (:foreground ,green :background ,green))))
+     `(term-color-magenta ((,class (:foreground ,magenta :background ,magenta))))
+     `(term-color-red ((,class (:foreground ,red :background ,red))))
+     `(term-color-white ((,class (:foreground ,base :background ,base))))
+     `(term-color-yellow ((,class (:foreground ,yellow :background ,yellow))))
 
 ;;;;; tide
      `(tide-hl-identifier-face ((,class (:foreground ,yellow :background ,yellow-bg))))
@@ -932,6 +934,49 @@ to 'auto, tags may not be properly aligned. "
      `(whitespace-space-before-tab ((,class (:background nil :foreground ,yellow))))
      `(whitespace-tab ((,class (:background nil :foreground ,act2))))
      `(whitespace-trailing ((,class (:background ,err :foreground ,war))))
+
+;;;;; bm
+     `(bm-face ((,class (:background ,red :foreground ,base))))
+     `(bm-fringe-face ((,class (:background ,red :foreground ,base))))
+     `(bm-persistent-face ((,class (:background ,head2 :foreground ,base))))
+     `(bm-fringe-persistent-face ((,class (:background ,head2 :foreground ,base))))
+
+;;;;; rpm-spec-mode
+     `(rpm-spec-dir-face ((,class (:foreground ,green))))
+     `(rpm-spec-doc-face ((,class (:foreground ,magenta))))
+     `(rpm-spec-ghost-face ((,class (:foreground ,red))))
+     `(rpm-spec-macro-face ((,class (:foreground ,yellow))))
+     `(rpm-spec-obsolete-tag-face ((,class (:background ,err :foreground ,bg1))))
+     `(rpm-spec-package-face ((,class (:foreground ,red))))
+     `(rpm-spec-section-face ((,class (:foreground ,yellow))))
+     `(rpm-spec-tag-face ((,class (:foreground ,blue))))
+     `(rpm-spec-var-face ((,class (:foreground ,cyan))))
+
+;;;;; minesweeper
+     `(minesweeper-0 ((,class (:foreground ,base-dim))))
+     `(minesweeper-blank ((,class (:foreground ,base-dim))))
+     `(minesweeper-explode ((,class (:foreground ,red :background ,red-bg))))
+     `(minesweeper-marked ((,class (:foreground ,green :background ,green-bg))))
+     `(minesweeper-mismarked ((,class (:foreground ,yellow :background ,yellow-bg))))
+     `(minesweeper-neighbor ((,class (:background ,bg2))))
+
+;;;;; hightlight-thing
+     `(highlight-thing ((,class (:inherit hi-green))))
+
+;;;;; rtags
+     `(rtags-argument-face ((,class (:foreground ,green :background ,green-bg))))
+     `(rtags-errline ((,class (:inherit flycheck-error))))
+     `(rtags-fixitline ((,class (:inherit flycheck-info))))
+     `(rtags-warnline ((,class (:inherit flycheck-warning))))
+
+;;;;; symbol-overlay
+     `(symbol-overlay-default-face ((,class (:background ,bg2))))
+
+;;;;; lsp-ui
+     `(lsp-ui-sideline-global ((,class (:background ,bg2))))
+
+;;;;; cquery
+     `(cquery-inactive-region-face ((t (:background ,bg2 :inherit shadow))))
 
 ;;;;; other, need more work
      `(ac-completion-face ((,class (:underline t :foreground ,keyword))))
